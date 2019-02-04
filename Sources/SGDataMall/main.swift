@@ -93,12 +93,12 @@ DataMallClient(apiKey: "???").getBusStopList { (result) in
             
             let roadName = it.roadName.replacingOccurrences(of: "\'", with: "\'\'")
             let description = it.description.replacingOccurrences(of: "\'", with: "\'\'")
-            let coslat = cos(it.latitude)
-            let sinlat = sin(it.latitude)
-            let coslng = cos(it.longitude)
-            let sinlng = sin(it.longitude)
+            let coslat = cos(it.latitude * Double.pi / 180.0)
+            let sinlat = sin(it.latitude * Double.pi / 180.0)
+            let coslng = cos(it.longitude * Double.pi / 180.0)
+            let sinlng = sin(it.longitude * Double.pi / 180.0)
             
-            let sql = "INSERT INTO BusStop(id,road,description,lat,lng,coslat,sinlat,coslng,sinlng) VALUES (\(it.stopCode),'\(roadName)','\(description)',\(it.latitude),\(it.longitude),\(coslat),\(sinlat),\(coslng),\(sinlng));\n"
+            let sql = "INSERT INTO BusStop(id,road,description,lat,lng,coslat,sinlat,coslng,sinlng) VALUES ('\(it.stopCode)','\(roadName)','\(description)',\(it.latitude),\(it.longitude),\(coslat),\(sinlat),\(coslng),\(sinlng));\n"
             
             handle.write(sql.data(using: .utf8)!)
         })
