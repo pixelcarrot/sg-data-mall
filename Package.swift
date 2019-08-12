@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -8,11 +8,11 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/Alamofire/Alamofire.git",
-            from: "4.8.1"
+            from: "4.8.2"
         ),
         .package(
             url: "https://github.com/SwiftyJSON/SwiftyJSON.git",
-            from: "4.2.0"
+            from: "5.0.0"
         )
     ],
     targets: [
