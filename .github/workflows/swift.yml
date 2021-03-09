@@ -1,0 +1,19 @@
+name: Swift
+
+on:
+  push:
+    branches: [ ci ]
+  pull_request:
+    branches: [ ci ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: swift build -v
+    - name: Run
+      run: swift run
